@@ -18,11 +18,11 @@ export default function StandaloneUnlockPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#111111] text-white">
-      {/* Navigation Header without search box matching screenshot */}
+    <div className="flex min-h-screen flex-col bg-[#070a13] text-white selection:bg-violet-600 selection:text-white">
+      {/* Navigation Header without search box */}
       <Header showSearch={false} />
 
-      {/* Main Unlock Full Access View */}
+      {/* Main VIP Bidder Pass View */}
       <main className="flex-1 flex flex-col">
         <UnlockAccessView onClose={handleClose} />
       </main>
