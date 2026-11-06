@@ -20,7 +20,6 @@ export interface AuctionItem {
   seller: {
     name: string;
     rating: string;
-    sales: number;
     verified: boolean;
   };
   category: string;
@@ -30,13 +29,12 @@ export interface CategoryItem {
   id: string;
   title: string;
   subtitle: string;
-  lotCount: number;
   thumbnail: string;
   tag: string;
   genre: string;
 }
 
-// Top 5 Featured Auctions using the 5 newly uploaded game images
+// Top 5 Featured Auctions using the 5 uploaded game images
 export const FEATURED_AUCTIONS: AuctionItem[] = [
   {
     id: "lot-gow-ragnarok",
@@ -54,7 +52,7 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     badge: "🔥 HOT AUCTION",
     badgeColor: "rose",
     thumbnail: "/images/god-of-war-ragnarok.jpg",
-    initialHoursLeft: 2.24, // ~2h 14m
+    initialHoursLeft: 2.24,
     description:
       "Extremely rare Jötnar Collector's Edition for PlayStation 5. Contains the 16-inch Mjölnir Hammer replica, 7-inch Vinyl Record with music by Bear McCreary, Vanir Twin Carvings, Falcon, Bear & Wolf Pin Set, and Yggdrasil Cloth Map. Unopened factory seal with flawless grade.",
     includes: [
@@ -66,7 +64,6 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     seller: {
       name: "NordicVault_USA",
       rating: "99.8%",
-      sales: 412,
       verified: true,
     },
     category: "playstation",
@@ -87,7 +84,7 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     badge: "⚡ ENDING SOON",
     badgeColor: "amber",
     thumbnail: "/images/red-dead-redemption-2.jpg",
-    initialHoursLeft: 0.71, // ~42m
+    initialHoursLeft: 0.71,
     description:
       "Authentic Rockstar Games Outlaw Collector's Box featuring heavy metal lockbox with key, collectible challenge coin, double-sided 100-piece wooden puzzle, six-shooter bandana, treasure map, playing cards, and Wheeler, Rawson and Co. Catalogue.",
     includes: [
@@ -99,7 +96,6 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     seller: {
       name: "FrontierCollectibles",
       rating: "100%",
-      sales: 890,
       verified: true,
     },
     category: "open-world",
@@ -120,7 +116,7 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     badge: "💎 COLLECTOR GEM",
     badgeColor: "purple",
     thumbnail: "/images/gta-v.jpg",
-    initialHoursLeft: 5.46, // ~5h 27m
+    initialHoursLeft: 5.46,
     description:
       "Original Launch Collector's Edition for PlayStation 4. Includes the authentic Los Santos Blueprint Map with hidden UV secrets, Security Deposit Bag with Laser-Cut Logo Key, New Era 9FIFTY Snapback Cap, and custom SteelBook artwork.",
     includes: [
@@ -132,7 +128,6 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     seller: {
       name: "LosSantos_Vault",
       rating: "99.4%",
-      sales: 624,
       verified: true,
     },
     category: "action",
@@ -153,7 +148,7 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     badge: "🎯 TACTICAL DROP",
     badgeColor: "cyan",
     thumbnail: "/images/cod-mw3.jpg",
-    initialHoursLeft: 3.83, // ~3h 50m
+    initialHoursLeft: 3.83,
     description:
       "Exclusive Vault Edition bundle with physical matte-finish steelbook, Task Force 141 embroidered emblem patch, Soap Operator commemorative challenge coin, and sealed voucher codes for the Nemesis Operator Pack and Weapon Vaults.",
     includes: [
@@ -165,7 +160,6 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     seller: {
       name: "TacticalLoot_Supply",
       rating: "99.7%",
-      sales: 310,
       verified: true,
     },
     category: "fps",
@@ -183,10 +177,10 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     highBidder: "BlockBuilder_Pro",
     reserveMet: true,
     featured: true,
-    badge: "🌟 42 BIDS ACTIVE",
+    badge: "🌟 10TH ANNIVERSARY",
     badgeColor: "emerald",
     thumbnail: "/images/minecraft.jpg",
-    initialHoursLeft: 1.09, // ~1h 05m
+    initialHoursLeft: 1.09,
     description:
       "Commemorative physical 10th Anniversary Minecraft collector package. Features embossed 3D block slipcover, Creeper metallic commemorative coin, Steve & Alex diorama booklet, and unopened physical token voucher with bonus creator skin pack.",
     includes: [
@@ -198,7 +192,6 @@ export const FEATURED_AUCTIONS: AuctionItem[] = [
     seller: {
       name: "PixelRetroPresents",
       rating: "99.9%",
-      sales: 1240,
       verified: true,
     },
     category: "sandbox",
@@ -228,7 +221,7 @@ export const ALL_AUCTIONS: AuctionItem[] = [
     description:
       "Launch edition steelbook featuring high relief embossing of Kratos and Atreus in the Fimbulwinter snow. Includes original soundtrack code and downloadable armor set.",
     includes: ["Embossed Jotunheim Steelbook", "Soundtrack Voucher", "Art Prints"],
-    seller: { name: "NordicVault_USA", rating: "99.8%", sales: 412, verified: true },
+    seller: { name: "NordicVault_USA", rating: "99.8%", verified: true },
     category: "playstation",
   },
   {
@@ -251,7 +244,7 @@ export const ALL_AUCTIONS: AuctionItem[] = [
     description:
       "Special Ultimate Edition steelbook with full fold-out map of New Hanover and West Elizabeth. Disc in pristine condition.",
     includes: ["Special Edition Steelbook", "Exclusive World Map", "Outlaw Survival Kit"],
-    seller: { name: "FrontierCollectibles", rating: "100%", sales: 890, verified: true },
+    seller: { name: "FrontierCollectibles", rating: "100%", verified: true },
     category: "open-world",
   },
   {
@@ -274,7 +267,7 @@ export const ALL_AUCTIONS: AuctionItem[] = [
     description:
       "Original PlayStation 4 steelbook with gloss finish, featuring Michael, Franklin, and Trevor artwork.",
     includes: ["Limited Edition Steelbook", "Los Santos City Guide Map"],
-    seller: { name: "LosSantos_Vault", rating: "99.4%", sales: 624, verified: true },
+    seller: { name: "LosSantos_Vault", rating: "99.4%", verified: true },
     category: "action",
   },
 ];
@@ -284,8 +277,7 @@ export const AUCTION_CATEGORIES: CategoryItem[] = [
   {
     id: "cat-playstation",
     title: "PlayStation Exclusives",
-    subtitle: "PS5 & PS4 Holy Grails",
-    lotCount: 28,
+    subtitle: "PS5 & PS4 Editions",
     thumbnail: "/images/god-of-war-ragnarok.jpg",
     tag: "PS5 / PS4",
     genre: "playstation",
@@ -293,8 +285,7 @@ export const AUCTION_CATEGORIES: CategoryItem[] = [
   {
     id: "cat-open-world",
     title: "Open World Epics",
-    subtitle: "Westerns, RPGs & Universes",
-    lotCount: 35,
+    subtitle: "Westerns & Universes",
     thumbnail: "/images/red-dead-redemption-2.jpg",
     tag: "Adventure",
     genre: "open-world",
@@ -303,7 +294,6 @@ export const AUCTION_CATEGORIES: CategoryItem[] = [
     id: "cat-action-crime",
     title: "Action & Blockbusters",
     subtitle: "High-octane Classics",
-    lotCount: 41,
     thumbnail: "/images/gta-v.jpg",
     tag: "Action",
     genre: "action",
@@ -312,7 +302,6 @@ export const AUCTION_CATEGORIES: CategoryItem[] = [
     id: "cat-sandbox-survival",
     title: "Sandbox & Crafting",
     subtitle: "Limited Boxes & Figures",
-    lotCount: 19,
     thumbnail: "/images/minecraft.jpg",
     tag: "Sandbox",
     genre: "sandbox",
@@ -321,7 +310,6 @@ export const AUCTION_CATEGORIES: CategoryItem[] = [
     id: "cat-fps-shooters",
     title: "FPS & Tactical Shooters",
     subtitle: "Call of Duty & Warfare",
-    lotCount: 23,
     thumbnail: "/images/cod-mw3.jpg",
     tag: "Multiplayer",
     genre: "fps",
@@ -330,7 +318,6 @@ export const AUCTION_CATEGORIES: CategoryItem[] = [
     id: "cat-steelbooks",
     title: "Collector Steelbooks",
     subtitle: "Embossed Metal Covers",
-    lotCount: 52,
     thumbnail: "/images/god-of-war-ragnarok.jpg",
     tag: "Hardware / Cases",
     genre: "steelbooks",

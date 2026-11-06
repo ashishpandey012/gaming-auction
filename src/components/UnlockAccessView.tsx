@@ -83,7 +83,7 @@ export default function UnlockAccessView({ onClose }: UnlockAccessViewProps) {
               <div className="flex justify-between text-[11px] text-slate-400 pt-1 border-t border-slate-700">
                 <span>Tag: <strong className="text-slate-200">{gamerTag || "Bidder"}</strong></span>
                 <span>Platform: <strong className="text-slate-200">{primaryPlatform}</strong></span>
-                <span>Power: <strong className="text-emerald-300">{selectedTier === "vip" ? "Unlimited" : "$500 Max"}</strong></span>
+                <span>Status: <strong className="text-emerald-300">Verified</strong></span>
               </div>
             </div>
 
@@ -97,7 +97,7 @@ export default function UnlockAccessView({ onClose }: UnlockAccessViewProps) {
               <button
                 type="button"
                 onClick={handleReset}
-                className="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-sm transition-colors"
+                className="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-sm transition-colors cursor-pointer"
               >
                 Register Another
               </button>
@@ -122,7 +122,7 @@ export default function UnlockAccessView({ onClose }: UnlockAccessViewProps) {
               </p>
             </div>
 
-            {/* Tier Selector: Free vs VIP Pass */}
+            {/* Tier Selector */}
             <div className="mt-5 grid grid-cols-2 gap-3">
               <button
                 type="button"
@@ -141,7 +141,7 @@ export default function UnlockAccessView({ onClose }: UnlockAccessViewProps) {
                 </div>
                 <div className="mt-1 text-sm font-extrabold text-slate-200">FREE</div>
                 <div className="mt-1 text-[11px] text-slate-400 leading-tight">
-                  Up to $500 bidding limit • Standard lots
+                  Instant verification • Standard lots
                 </div>
               </button>
 
@@ -167,7 +167,7 @@ export default function UnlockAccessView({ onClose }: UnlockAccessViewProps) {
                   $14.99 <span className="text-xs text-slate-400 font-normal">/ mo</span>
                 </div>
                 <div className="mt-1 text-[11px] text-slate-300 leading-tight">
-                  Unlimited bids • 0% buyer fee • Anti-sniping
+                  0% buyer fee • Anti-sniping shield
                 </div>
               </button>
             </div>
@@ -224,7 +224,7 @@ export default function UnlockAccessView({ onClose }: UnlockAccessViewProps) {
                   id="platform"
                   value={primaryPlatform}
                   onChange={(e) => setPrimaryPlatform(e.target.value)}
-                  className="w-full rounded-xl bg-slate-900 border border-slate-700/80 px-3.5 py-2 text-sm text-white focus:border-violet-500 focus:outline-none transition-colors"
+                  className="w-full rounded-xl bg-slate-900 border border-slate-700/80 px-3.5 py-2 text-sm text-white focus:border-violet-500 focus:outline-none transition-colors cursor-pointer"
                 >
                   <option value="PS5">PlayStation 5</option>
                   <option value="PS4">PlayStation 4</option>

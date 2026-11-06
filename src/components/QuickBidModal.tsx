@@ -22,7 +22,6 @@ export default function QuickBidModal({
   const [bidStatus, setBidStatus] = useState<"idle" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
   const [currentAmount, setCurrentAmount] = useState(item.currentBid);
-  const [bidsCount, setBidsCount] = useState(item.totalBids);
 
   const minNextBid = currentAmount + 5;
 
@@ -39,7 +38,6 @@ export default function QuickBidModal({
     setTimeout(() => {
       setIsSubmitting(false);
       setCurrentAmount(bidValue);
-      setBidsCount((prev) => prev + 1);
       setBidStatus("success");
       setStatusMessage(`Bid Placed! You are now the highest bidder at $${bidValue.toFixed(2)}.`);
       setCustomBid("");
@@ -76,7 +74,6 @@ export default function QuickBidModal({
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
               Live Auction Lot
             </span>
-            <span className="text-xs text-slate-400">• Lot #{item.id}</span>
           </div>
           <button
             onClick={onClose}
@@ -119,8 +116,8 @@ export default function QuickBidModal({
               </p>
               <div className="mt-2 text-xs text-slate-400 flex items-center gap-2">
                 <span>Seller: <strong className="text-slate-200">{item.seller.name}</strong></span>
-                <span className="px-1.5 py-0.5 rounded bg-slate-800 text-amber-300 text-[10px] font-semibold">
-                  ★ {item.seller.rating}
+                <span className="px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 text-[10px] font-semibold">
+                  Verified
                 </span>
               </div>
             </div>
@@ -141,14 +138,12 @@ export default function QuickBidModal({
             </div>
 
             <div className="text-right">
-              <span className="text-xs text-slate-400 block font-medium">Bids Placed</span>
-              <span className="text-base sm:text-lg font-bold text-white flex items-center justify-end gap-1.5">
-                <svg className="w-4 h-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                {bidsCount}
+              <span className="text-xs text-emerald-400 font-semibold block">
+                ● Reserve Met
               </span>
-              <span className="text-[11px] text-emerald-400 font-medium">Reserve Met</span>
+              <span className="text-[11px] text-slate-400 block mt-0.5">
+                Escrow Protected
+              </span>
             </div>
           </div>
 
@@ -265,4 +260,3 @@ export default function QuickBidModal({
     </div>
   );
 }
-

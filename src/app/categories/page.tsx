@@ -1,15 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AUCTION_CATEGORIES, ALL_AUCTIONS } from "@/data/mockData";
+import { AUCTION_CATEGORIES } from "@/data/mockData";
 
 export default function CategoriesPage() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<"all" | "playstation" | "open-world" | "action" | "fps" | "sandbox">("all");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -31,21 +30,16 @@ export default function CategoriesPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             {/* Page Heading */}
             <div className="text-center max-w-2xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-2">
-                <svg className="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-                <span>COLLECTOR VAULTS</span>
-              </div>
               <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
                 Browse Gaming Categories
               </h1>
-              <p className="mt-2 text-xs sm:text-sm text-slate-400">
+              <div className="mx-auto mt-2.5 h-[3px] w-16 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400" />
+              <p className="mt-3 text-xs sm:text-sm text-slate-400">
                 Explore rare video games by franchise universe, console platform, and collector edition rarity.
               </p>
             </div>
 
-            {/* Featured Category Banners (Grid of 6) */}
+            {/* Category Cards (Grid of 6) */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {AUCTION_CATEGORIES.map((cat) => (
                 <Link
@@ -65,11 +59,6 @@ export default function CategoriesPage() {
                     {/* Tag badge */}
                     <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-md">
                       {cat.tag}
-                    </span>
-
-                    {/* Lot Count */}
-                    <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full text-xs font-bold bg-slate-900/90 border border-slate-700 text-emerald-400 shadow">
-                      {cat.lotCount} Active Lots
                     </span>
                   </div>
 
@@ -96,22 +85,22 @@ export default function CategoriesPage() {
             </div>
 
             {/* Platform Quick-Access Strip */}
-            <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#0e1628] to-[#0a0f1c] border border-violet-500/20">
+            <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#0e1628] to-[#0a0f1c] border border-slate-800">
               <h3 className="text-lg font-bold text-white mb-2">
                 Browse by Hardware & Console Platform
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 mb-6 max-w-2xl">
-                Filter live auction items certified by platform architecture, regional compatibility (NTSC / PAL), and factory seal grading.
+                Filter live auction items certified by platform architecture, regional compatibility, and factory seal grading.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                 {[
-                  { name: "PlayStation 5", count: "34 Lots", icon: "PS5" },
-                  { name: "PlayStation 4", count: "48 Lots", icon: "PS4" },
-                  { name: "Xbox Series X", count: "22 Lots", icon: "XBOX" },
-                  { name: "Nintendo Switch", count: "29 Lots", icon: "SWITCH" },
-                  { name: "PC & Steelbook", count: "18 Lots", icon: "PC" },
-                  { name: "Retro Classics", count: "15 Lots", icon: "RETRO" },
+                  { name: "PlayStation 5", icon: "PS5" },
+                  { name: "PlayStation 4", icon: "PS4" },
+                  { name: "Xbox Series X", icon: "XBOX" },
+                  { name: "Nintendo Switch", icon: "SWITCH" },
+                  { name: "PC & Steelbook", icon: "PC" },
+                  { name: "Retro Classics", icon: "RETRO" },
                 ].map((plat, i) => (
                   <Link
                     key={i}
@@ -123,9 +112,6 @@ export default function CategoriesPage() {
                     </span>
                     <span className="text-xs font-bold text-white block">
                       {plat.name}
-                    </span>
-                    <span className="text-[10px] text-slate-400 block mt-0.5">
-                      {plat.count}
                     </span>
                   </Link>
                 ))}

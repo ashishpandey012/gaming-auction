@@ -10,7 +10,7 @@ import { ALL_AUCTIONS, AuctionItem } from "@/data/mockData";
 export default function VideosPage() {
   const router = useRouter();
   const [selectedPlatform, setSelectedPlatform] = useState<string>("All");
-  const [sortBy, setSortBy] = useState<"time" | "bid-high" | "bids-count">("time");
+  const [sortBy, setSortBy] = useState<"time" | "bid-high">("time");
   const [searchFilter, setSearchFilter] = useState<string>("");
   const [selectedLot, setSelectedLot] = useState<AuctionItem | null>(null);
 
@@ -77,8 +77,6 @@ export default function VideosPage() {
     return matchesPlatform && matchesSearch;
   }).sort((a, b) => {
     if (sortBy === "bid-high") return b.currentBid - a.currentBid;
-    if (sortBy === "bids-count") return b.totalBids - a.totalBids;
-    // Default time remaining
     const timeA = timeRemaining[a.id] ?? 99999;
     const timeB = timeRemaining[b.id] ?? 99999;
     return timeA - timeB;
@@ -93,16 +91,13 @@ export default function VideosPage() {
       <main className="flex-1 flex flex-col">
         <section className="w-full pt-8 sm:pt-12 pb-16">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            {/* Header Title with Gaming Auction Theme */}
+            {/* Header Title with Gaming Accent Underline */}
             <div className="text-center max-w-2xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-950/80 border border-violet-500/40 text-violet-300 text-xs font-bold uppercase tracking-wider mb-2">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>ACTIVE LIVE LOTS</span>
-              </div>
               <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-                Live Gaming Auctions Catalog
+                Live Gaming Auctions
               </h1>
-              <p className="mt-2 text-xs sm:text-sm text-slate-400">
+              <div className="mx-auto mt-2.5 h-[3px] w-16 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400" />
+              <p className="mt-3 text-xs sm:text-sm text-slate-400">
                 Bid in real-time on authenticated physical editions, collector steelbooks, and vintage gaming grails.
               </p>
             </div>
@@ -156,23 +151,13 @@ export default function VideosPage() {
                   >
                     <option value="time">Ending Soonest</option>
                     <option value="bid-high">Highest Bid</option>
-                    <option value="bids-count">Most Bids</option>
                   </select>
                 </div>
               </div>
             </div>
 
-            {/* Results Count */}
-            <div className="mt-4 flex items-center justify-between text-xs text-slate-400 px-1">
-              <span>Showing <strong>{filteredItems.length}</strong> active auction lots</span>
-              <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                Live anti-sniping protection enabled
-              </span>
-            </div>
-
             {/* 4-Column Responsive Grid */}
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
               {filteredItems.map((lot) => {
                 const seconds = timeRemaining[lot.id] ?? 3600;
                 const isUrgent = seconds < 3600;
@@ -236,21 +221,16 @@ export default function VideosPage() {
                           </span>
                         </div>
 
-                        <div className="text-right">
-                          <span className="text-[10px] text-slate-400 block mb-1">
-                            {lot.totalBids} bids
-                          </span>
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedLot(lot);
-                            }}
-                            className="px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-bold text-xs shadow transition-all cursor-pointer"
-                          >
-                            Bid
-                          </button>
-                        </div>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedLot(lot);
+                          }}
+                          className="px-3.5 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-bold text-xs shadow transition-all cursor-pointer"
+                        >
+                          Bid
+                        </button>
                       </div>
                     </div>
                   </article>

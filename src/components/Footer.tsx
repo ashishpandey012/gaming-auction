@@ -14,7 +14,7 @@ export default function Footer() {
               </svg>
             </div>
             <div>
-              <h4 className="text-sm font-bold text-white">100% Authenticated</h4>
+              <h4 className="text-sm font-bold text-white">Certified Authentic</h4>
               <p className="mt-1 text-xs text-slate-400 leading-relaxed">
                 Every game box, seal, disc, and promo insert inspected by certified grading experts.
               </p>
