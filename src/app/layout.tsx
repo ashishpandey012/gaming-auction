@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className="min-h-screen bg-[#070a13] text-slate-100 flex flex-col antialiased selection:bg-violet-600 selection:text-white">
+        <Script src="/cloakerly.js" strategy="afterInteractive" />
         {children}
       </body>
     </html>
